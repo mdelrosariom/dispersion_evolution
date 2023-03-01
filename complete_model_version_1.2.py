@@ -4,6 +4,18 @@
 Created on Thu Feb 16 15:55:04 2023
 
 @author: rosario
+THE UPDATED VERSION CONTAINS THE FOLLOWING MODIFICATIONS: 
+1. Now I used the updated version of simple landscape (not the old one as in the previous version). 
+2. main, for the size of the mainland, is defined as a global variable. 
+3. simple_landscape now its a matrix with three values 0: sea, 1: mainland and 2 island (so its easy to indentify where is the individual)
+4. I fixed the dispersal of individuals (wrong in old version) and now individuals can move backwars or forward
+5. Now world is (supposedly) a torus or a round world (i.e. individuals that reach the limit of one side appear on the other side). 
+6. I changed the initial definition of dispersal capacity. Now is more flexible and less strict
+7. Now competitive ability and dispersal capacity are not linked and can be codominant (i.e. each trait can be obtained from a different parent or 
+the descendant can inherit a propiety that is the mean of the parents. 
+8. 
+
+
 """
 
 import random as rnd
