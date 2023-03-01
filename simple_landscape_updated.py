@@ -36,7 +36,7 @@ def simple_landscape(nrow,ncol,size,shape):
     main = ncol//4
     
     #we append it into the sea
-    landscape[:,0:ncol//4] =1  
+    landscape[:,0:main] =1  
     
     #we create the dimentions of the island        
     
@@ -50,7 +50,7 @@ def simple_landscape(nrow,ncol,size,shape):
     
         #now we append the island to the lanscape   
         
-       landscape[posx:posx+dim, posy:posy+dim] = 1  
+       landscape[posx:posx+dim, posy:posy+dim] = 2  
             
     else: 
             
@@ -62,7 +62,7 @@ def simple_landscape(nrow,ncol,size,shape):
         
         posx = rn.randint(0,nrow-dimx)
             
-        landscape[posx:posx+dimx, posy:posy+dimy] = 1  
+        landscape[posx:posx+dimx, posy:posy+dimy] = 2  
     
     
     
