@@ -163,7 +163,7 @@ class Metapopulation:
                 
         oldpop = [org_alive for org_alive in oldpop if org_alive.state != "dead"] 
         # we just need the list of all all individuals that are alive         
-        offspring = []
+        offspring = [] #FOR MODIFICATION OF COMPETENCE SEE 236
         del self.population[:]
         list_nei = []
         for plant in oldpop: 
@@ -232,20 +232,19 @@ class Metapopulation:
                                 new_x == new_x - ncol 
                             if new_y > nrow: 
                                 new_y == new_y - nrow
-                                
+                            #MODIFICATION ACORDING TO FREDERIK 
                             plant = Plant(new_x, new_y, new_genome,new_comp_ab, new_disp_cap)
-                            # print(plant.pos)
+                            #CHECK IF THERE IS A PLANT IN OFFSPRING WITH THE SAME POSITION...
                             if not any(plant.pos in sublist for sublist in offspring): 
-                                offspring.append([plant.pos, plant])
-                                print("no esta", plant.pos)
-                                # print(offspring)
-                            else:
-                                comp_ab_new = plant.comp_ab
-                                print("nueva", plant.pos, plant.comp_ab)
+                                offspring.append([plant.pos, plant]) #IF NOT APPEND TO OFFSPRING WITHOUT A PROBLEM
+                                #THE STRRUCTURE OF OFFSPRING IS A LIST OF LISTS, EACH LIST = [POSITION OF THE PLANT, PLANT] TO "EASILY CHECK FOR 
+                                #PRESENCE IN CERTAIN POSITION
+                            else: #IF THERE IS A PLANT WITH THE SAME POSITION ALREADY IN OFFSPRING, THEN WE NEED TO CHECK FOR BETTER COMPETITIVE AB
+                                comp_ab_new = plant.comp_ab #COMPETITIVE ABILITY OF THE NEW PLANT (THAT JUST ARRIVED AT THE POSITION)                                
                                 for i in offspring :
                                     if plant.pos in i:                                         
-                                        comp_ab_ori = i[1].comp_ab                                    
-                                        
+                                        comp_ab_ori = i[1].comp_ab   #COMPETITIVE ABILITY OF PLANT THAT ALREADY WAS IN THE POSITION                                 
+                                        #COMPARE AND REPLACE PLANT IF NECESSARY
                                         if comp_ab_ori > comp_ab_new: 
                                             pass 
                                         if comp_ab_ori < comp_ab_new: 
@@ -255,8 +254,8 @@ class Metapopulation:
                                             winner = random.choice([i, [plant.pos,plant]])
                                             offspring[offspring.index(i)] = winner
                
-                offspring = [x[1] for x in offspring]
-                self.population.append(offspring) 
+                offspring = [x[1] for x in offspring] #WE CLEAN OFFSPRING NOW IT IS JUST A LIST OF PLANTS (NOT POSITIONS)
+                self.population.append(offspring) #AND NOW WE APPEND ALL THE NEW OFFSPRING TO THE POPULATION
                 self.population = [item for sublist in self.population for item in sublist]
                             
                 plants_in_island = []
