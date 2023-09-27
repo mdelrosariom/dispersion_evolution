@@ -7,6 +7,11 @@ for now creates a mainland island landscape, individuals of the same species onl
 position as an atribute. the indivuals die if the fall into the sea. the individuals die after 
 2 years. the individuals have a change of 50% of having offspring. the simulation can be seen in
 a graphical window. 
+new: 
+1. control number of time steps (apart from the duration). 
+2. offspring now can be created anywhere (before error, only in mainland).
+3. offspring creating if neighbours in one of the 8 adjacent squares of girds. 
+4. now just one plant per square, the one standing is chosed randomly (still not competitive ability, nor any other attribute)
 
 """
 import random as rnd
