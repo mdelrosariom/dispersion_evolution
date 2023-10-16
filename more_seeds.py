@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Oct 13 00:08:56 2023
-
-@author: mdrmi
-"""
-
-# -*- coding: utf-8 -*-
-"""
 Created on Tue Sep 26 10:15:58 2023
 
 @author: mdrmi
