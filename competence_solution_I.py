@@ -11,7 +11,7 @@ new:
 1. control number of time steps (apart from the duration). 
 2. offspring now can be created anywhere (before error, only in mainland).
 3. offspring creating if neighbours in one of the 8 adjacent squares of girds. 
-4. now just one plant per square, the one standing is chosed randomly (still not competitive ability, nor any other attribute)
+4. now just one plant per square, the one standing is chosed randomly (still not competitive ability, nor any other attribute). competence is added see 13 and 14
 
 5. plants inizialize with red color
 6. plants only do offspring after they turn 1 year. 
@@ -254,7 +254,7 @@ def update():
                 if best_comp.comp_ab == best :
                     winner = best_comp
             losers = [x for x in same_place if x !=winner]
-            print('comps', comp_ab_values, 'best', best, 'losers', losers)
+            
             for los in losers: 
                 plants_to_remove.append(los)             
        
