@@ -44,6 +44,8 @@ the complete niche is just a list of numbers between 1 and 12. the complete nich
 the mainland (in the mainland there are all the niches), then in the island, there is a subset of 
 the niches of the mainland, a list of 4 numbers in ascending order that are taked randomply from
 the entire niche of the mainland. the species will have an atribute of the niche of a list of 3.
+17. now each species has a characteristic niche a list between 1-10 with a len of 3. 
+
 """
 import random as rnd
 import tkinter as tk
@@ -57,10 +59,14 @@ main = ncol // 2
 shape = 0
 
 current_time_step = 0
-
+niche_mainland = [1,2,3,4,5,6,7,8,9,10,11,12]
 sp_1 = ['sp_1']+ rnd.choices(["A", "T", "C", "G"], k= 100) 
+niche_of_sp1 =  rnd.randint(1,10)
+niche_sp_1 =  list(range(niche_of_sp1, niche_of_sp1+3))
 
 sp_2 = ['sp_2']+ rnd.choices(["A", "T", "C", "G"], k= 100) 
+niche_of_sp2 =  rnd.randint(1,10)
+niche_sp_2 =  list(range(niche_of_sp2, niche_of_sp2+3))
 
 species_list = [sp_1, sp_2]
 
@@ -122,8 +128,10 @@ class Plant:
         self.specie = specie
         if specie == "sp_1": 
             self.color = 'forestgreen'
+            self.niche = niche_sp_1
         if specie == "sp_2": 
             self.color = 'blue'
+            self.niche = niche_sp_2
         self.comp_ab = rnd.random()
 
 def create_plant(x, y,initial_color):
@@ -162,7 +170,7 @@ def niche(mainland_island):
     
         for j in range(len(en_niche)): 
             if mainland_island[i][j] == 1:
-                en_niche[i][j] = [1,2,3,4,5,6,7,8,9,10,11,12] #complete niches only 4 availables
+                en_niche[i][j] = niche_mainland #complete niches only 4 availables
             if mainland_island[i][j] == 2:            
                 en_niche[i][j] = list(range(niche_of_island, niche_of_island+4)) # i am thinking of 
   #larger than the niche i am thinking for species (len = 3)
