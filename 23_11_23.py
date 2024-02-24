@@ -3,8 +3,7 @@
 Created on Tue Sep 26 10:15:58 2023
 
 @author: mdrmi
-for now creates a mainland island landscape, individuals of the same species only with 
-position as an atribute. the indivuals die if the fall into the sea. the individuals die after 
+for now creates a mainland island landscape, individuals die if the fall into the sea. the individuals die after 
 2 years. the individuals have a change of 50% of having offspring. the simulation can be seen in
 a graphical window. 
 new: 
@@ -13,8 +12,8 @@ new:
 3. offspring creating if neighbours in one of the 8 adjacent squares of girds. 
 4. now just one plant per square, the one standing is chosed randomly (still not competitive ability, nor any other attribute). competence is added see 13 and 14
 
-5. plants inizialize with red color
-6. plants only do offspring after they turn 1 year. 
+5. plants inizialize with red color first time step 
+6. plants only do offspring after they turn 1 year (1 time step) 
 
 7. plants dont move anymore
 8. plants have a dispersal capacity (given by normal distribution) and they produce offspring which new position is determined 
@@ -62,7 +61,8 @@ CORRECTION OF 18. adaptation occur in the offspring, not in the plants, in all t
 
 19. 21/11/23 individuals get eliminated on islands if their niche does not overlap (at least in one element)
 i.e. if the individual is not adapted to the island, then it can't stay there. This condition applies 
-only to islands (not mainland), but mathematically there is not a problem with that. 
+only to islands (not mainland), but mathematically there is not a problem with that (because in mainland 
+                                                                                     there are all niches) 
 
 20. 23/11/23 if there is multiple individuals in island, then the selection for which one 
 stays depends on how well are adapted to the environment, i.e. if the can use more resourses 
